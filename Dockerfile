@@ -1,4 +1,4 @@
-FROM jboss/keycloak-adapter-wildfly:3.2.0.Final
+FROM jboss/keycloak-adapter-wildfly:3.2.1.Final
 
 ADD changeDatabase.xsl /opt/jboss/wildfly/
 RUN java -jar /usr/share/java/saxon.jar -s:/opt/jboss/wildfly/standalone/configuration/standalone.xml -xsl:/opt/jboss/wildfly/changeDatabase.xsl -o:/opt/jboss/wildfly/standalone/configuration/standalone.xml; java -jar /usr/share/java/saxon.jar -s:/opt/jboss/wildfly/standalone/configuration/standalone-ha.xml -xsl:/opt/jboss/wildfly/changeDatabase.xsl -o:/opt/jboss/wildfly/standalone/configuration/standalone-ha.xml; rm /opt/jboss/wildfly/changeDatabase.xsl
