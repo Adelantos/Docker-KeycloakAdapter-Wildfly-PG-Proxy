@@ -8,7 +8,7 @@
 
     <xsl:template match="//ds:subsystem/ds:datasources">
         <xsl:copy>
-            <ds:datasource jndi-name="java:jboss/datasources/${env.POSTGRES_DATASOURCES:PostgresDS}" enabled="true" use-java-context="true"
+            <ds:datasource jndi-name="java:jboss/datasources/PostgresDS" enabled="true" use-java-context="true"
                            pool-name="PostgresDS" use-ccm="true">
                 <ds:connection-url>
                     jdbc:postgresql://${env.POSTGRES_PORT_5432_TCP_ADDR:localhost}:${env.POSTGRES_PORT_5432_TCP_PORT:5432}/${env.POSTGRES_DATABASE:postgres}
