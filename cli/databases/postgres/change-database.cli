@@ -1,0 +1,8 @@
+/subsystem=datasources/data-source=PostgresDS: add(jndi-name=java:jboss/datasources/PostgresDS,enabled=true,use-java-context=true,use-ccm=true, connection-url=jdbc:postgresql://${env.POSTGRES_PORT_5432_TCP_ADDR:postgres}:${env.POSTGRES_PORT_5432_TCP_PORT:5432}/${env.POSTGRES_DATABASE:postgres}, driver-name=postgresql)
+/subsystem=datasources/data-source=PostgresDS: write-attribute(name=user-name, value=${env.POSTGRES_USER:postgres})
+/subsystem=datasources/data-source=PostgresDS: write-attribute(name=password, value=${env.POSTGRES_PASSWORD:password})
+/subsystem=datasources/data-source=PostgresDS: write-attribute(name=check-valid-connection-sql, value="SELECT 1")
+/subsystem=datasources/data-source=PostgresDS: write-attribute(name=background-validation, value=true)
+/subsystem=datasources/data-source=PostgresDS: write-attribute(name=background-validation-millis, value=60000)
+/subsystem=datasources/data-source=PostgresDS: write-attribute(name=flush-strategy, value=IdleConnections)
+/subsystem=datasources/jdbc-driver=postgresql:add(driver-name=postgresql, driver-module-name=org.postgresql.jdbc, driver-xa-datasource-class-name=org.postgresql.xa.PGXADataSource)
