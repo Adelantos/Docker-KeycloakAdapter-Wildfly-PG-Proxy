@@ -1,6 +1,6 @@
 FROM jboss/wildfly:11.0.0.Final
 
-ENV KEYCLOAK_VERSION 3.4.0.Final
+ENV KEYCLOAK_VERSION 3.4.3.Final
 ENV PROXY_ADDRESS_FORWARDING false
 USER root
 
@@ -19,7 +19,7 @@ RUN cd /opt/jboss/wildfly && bin/jboss-cli.sh --file=cli/standalone-ha-configura
 RUN cd /opt/jboss/wildfly && bin/jboss-cli.sh --file=bin/adapter-elytron-install-offline.cli && rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history
 RUN cd /opt/jboss/wildfly && bin/jboss-cli.sh --file=bin/adapter-elytron-install-ha-offline.cli && rm -rf /opt/jboss/wildfly/standalone-ha/configuration/standalone_xml_history
 
-ENV JDBC_POSTGRES_VERSION 42.1.4
+ENV JDBC_POSTGRES_VERSION 42.2.1
 
 ADD databases/change-database.sh /opt/jboss/wildfly/bin/change-database.sh
 
