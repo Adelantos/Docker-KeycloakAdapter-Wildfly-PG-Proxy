@@ -1,4 +1,4 @@
-FROM jboss/wildfly:11.0.0.Final
+FROM jboss/wildfly:13.0.0.Final
 
 ENV KEYCLOAK_VERSION 4.3.0.Final
 ENV PROXY_ADDRESS_FORWARDING false
