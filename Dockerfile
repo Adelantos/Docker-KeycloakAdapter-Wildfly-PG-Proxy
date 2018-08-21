@@ -1,6 +1,6 @@
 FROM jboss/wildfly:11.0.0.Final
 
-ENV KEYCLOAK_VERSION 3.4.3.Final
+ENV KEYCLOAK_VERSION 4.3.0.Final
 ENV PROXY_ADDRESS_FORWARDING false
 USER root
 
@@ -15,11 +15,11 @@ ADD docker-entrypoint.sh /opt/jboss/
 ADD cli /opt/jboss/wildfly/cli
 ADD adapter-elytron-install-ha-offline.cli /opt/jboss/wildfly/bin/
 RUN cd /opt/jboss/wildfly && bin/jboss-cli.sh --file=cli/standalone-configuration.cli && rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history
-RUN cd /opt/jboss/wildfly && bin/jboss-cli.sh --file=cli/standalone-ha-configuration.cli && rm -rf /opt/jboss/wildfly/standalone-ha/configuration/standalone_xml_history
+#RUN cd /opt/jboss/wildfly && bin/jboss-cli.sh --file=cli/standalone-ha-configuration.cli && rm -rf /opt/jboss/wildfly/standalone-ha/configuration/standalone_xml_history
 RUN cd /opt/jboss/wildfly && bin/jboss-cli.sh --file=bin/adapter-elytron-install-offline.cli && rm -rf /opt/jboss/wildfly/standalone/configuration/standalone_xml_history
 RUN cd /opt/jboss/wildfly && bin/jboss-cli.sh --file=bin/adapter-elytron-install-ha-offline.cli && rm -rf /opt/jboss/wildfly/standalone-ha/configuration/standalone_xml_history
 
-ENV JDBC_POSTGRES_VERSION 42.2.1
+ENV JDBC_POSTGRES_VERSION 42.2.4
 
 ADD databases/change-database.sh /opt/jboss/wildfly/bin/change-database.sh
 
