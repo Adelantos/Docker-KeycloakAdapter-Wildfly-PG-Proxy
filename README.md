@@ -1,7 +1,7 @@
 # Docker Keycloak Adapter Wildfly Postgres reverce-proxy
-- Wildfly 11.0.0.Final
-- Keycloak 3.4.3.Final
-- PostgreSQL-Driver 42.2.1
+- Wildfly 13.0.0.Final
+- Keycloak 4.3.0.Final
+- PostgreSQL-Driver 42.2.4
 
 ### Environment variables 
 
