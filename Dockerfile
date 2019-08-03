@@ -1,6 +1,6 @@
-FROM jboss/wildfly:15.0.0.Final
+FROM jboss/wildfly:17.0.1.Final
 
-ENV KEYCLOAK_VERSION 4.8.1.Final
+ENV KEYCLOAK_VERSION 6.0.1
 ENV PROXY_ADDRESS_FORWARDING false
 USER root
 
