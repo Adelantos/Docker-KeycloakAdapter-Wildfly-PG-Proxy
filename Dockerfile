@@ -2,6 +2,7 @@ FROM jboss/wildfly:19.0.0.Final
 
 ENV KEYCLOAK_VERSION 9.0.3
 ENV PROXY_ADDRESS_FORWARDING false
+ENV MAX_POST_SIZE 10485760
 USER root
 
 RUN yum install -y epel-release && yum install -y jq && yum clean all
